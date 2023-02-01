@@ -1,12 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Day View Tab</title>
 </head>
+
 <body>
-    <div class="letsDoThis"><p>Heeerrrrrrooooo Tiiiitttttiiiieeessss</p></div>
+    <!-- DATE -->
+    <div class="container-fluid bg-dark text-light text-center p-4 form-control-lg">
+
+        <script>
+            date = new Date().toLocaleDateString();
+            document.write(date);
+        </script>
+    </div>
+    <!-- DAYS CHECK BOX -->
+    <div class="days col-12 text-end ">
+        <div class="form-check form-check-inline">
+            <label>MON</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+        <div class="form-check form-check-inline">
+            <label>TUE</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+        <div class="form-check form-check-inline">
+            <label>WED</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+        <div class="form-check form-check-inline">
+            <label>THU</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+        <div class="form-check form-check-inline">
+            <label>FRI</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+        <div class="form-check form-check-inline">
+            <label>SAT</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+        <div class="form-check form-check-inline">
+            <label>SUN</label>
+            <input class="form-check-input-reverse" type="checkbox" id="inlineCheckbox1">
+        </div>
+
+        <!-- ROW FOR HEADERS -->
+    </div>
+    <div class="row">
+        <h4 class="critTaskBar bg-info col-md-6 text-center border-end p-2">CRITICAL TASKS</h4>
+        <h4 class="critTaskBar bg-info col-md-6 text-center p-2">DAILY SCHEDULE</h4>
+    </div>
+    <!-- MAIN CONTAINER -->
+    <div class="main row">
+        <!-- LEFT COLUMN -->
+        <div class="column1 col-md-6">
+            <div class="critTask">
+                <table class="table table-hover ">
+                    <thead>
+                        <div class="m-4">
+                            <div id="myModal" class="modal fade" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Add task</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Do you want to save changes to this document before closing?</p>
+                                            <p class="text-secondary"><small>If you don't save, your changes will be lost.</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <tr class="input col-md-1">
+                            <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                    class="custom-control-input" id="customCheck">
+                            </th>
+                            <td>Default</td>
+                            <th class="critTaskDate col-md-1">(__/__/__) -->
+                            </th>
+                        </tr>
+                        <tr class="input col-md-1">
+                            <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                    class="custom-control-input" id="customCheck">
+                            </th>
+                            <td>Default</td>
+                            <th class="critTaskDate col-md-1">(__/__/__)
+                            </th>
+                        </tr>
+                        <tr class="input col-md-1">
+                            <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                    class="custom-control-input" id="customCheck">
+                            </th>
+                            <td>Default</td>
+                            <th class="critTaskDate col-md-1">(__/__/__)
+                            </th>
+                        </tr>
+                        </tbody>
+                </table>
+                <h4 class="critTaskBar bg-info text-center p-2">OTHER TASKS</h4>
+                <div class="otherTasks">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+                <h4 class="critTaskBar bg-info text-center p-2">GOALS</h4>
+                <div class="goals">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+                <h4 class="critTaskBar bg-info text-center p-2">DAILY HABITS</h4>
+                <div class="dailyHabits">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+                <h4 class="critTaskBar bg-info text-center p-2">DISTRACTIONS</h4>
+                <div class="distractions">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+                <h4 class="critTaskBar bg-info text-center p-2">EXERCISE</h4>
+                <div class="exercise">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            <tr class="input col-md-1">
+                                <th class="checkBox text-center col-md-1"><input type="checkbox"
+                                        class="custom-control-input" id="customCheck">
+                                </th>
+                                <td>Default</td>
+                                <th class="critTaskDate col-md-1">(__/__/__)
+                                </th>
+                            </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- RIGHT COLUMN -->
+        <div class="column2 col-md-6">
+            <div class="dailySched">
+                <div class="input-group mt-2">
+                    <span class="input-group-text">8:00 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">8:30 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">9:00 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">9:30 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">10:00 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">10:30 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">11:00 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">11:30 AM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">12:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">12:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">1:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">1:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">2:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">2:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">3:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">3:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">4:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">4:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">5:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">5:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">6:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">6:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">7:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">7:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">8:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">8:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">9:00 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">9:30 PM</span>
+                    <input type="text" class="form-control">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
